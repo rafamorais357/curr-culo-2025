@@ -6,16 +6,16 @@
   <title>Rafael Pereira Morais - Currículo</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
-    html {
-      scroll-behavior: smooth;
-    }
     .tab-inactive {
-      background-color: #e5e7eb; /* cinza */
-      color: #1f2937; /* cinza escuro */
+      background-color: #e5e7eb;
+      color: #1f2937;
     }
     .tab-active {
-      background-color: #3b82f6; /* azul */
+      background-color: #3b82f6;
       color: white;
+    }
+    html {
+      scroll-behavior: smooth;
     }
   </style>
 </head>
@@ -25,16 +25,16 @@
   <section class="bg-gray-900 py-12 px-4 sm:px-6 text-center">
     <h1 class="text-3xl sm:text-4xl font-bold mb-2 text-white">Rafael Pereira Morais</h1>
     <p class="text-base sm:text-lg mb-6 text-gray-300">Fotógrafo | Criador de Conteúdo | Profissional Multidisciplinar</p>
-    
+
     <!-- Vídeo Responsivo -->
-    <div class="aspect-w-16 aspect-h-9 w-full max-w-3xl mx-auto">
-      <iframe class="w-full h-full" src="https://www.youtube.com/embed/kAXgIQwieMA?si=On7qaZs8dlW2NE8v&amp;controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    <div class="w-full max-w-2xl mx-auto aspect-video mb-6">
+      <iframe class="w-full h-full rounded-xl" src="https://www.youtube.com/embed/kAXgIQwieMA?si=On7qaZs8dlW2NE8v&amp;controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
     </div>
 
-    <!-- Botão -->
-    <a href="#inicio-experiencia" class="mt-6 inline-block bg-blue-500 text-white px-6 py-2 rounded-xl shadow-md hover:bg-blue-600 transition duration-200">
-      Ver mais detalhes
-    </a>
+    <!-- Botão Ver mais detalhes -->
+    <div class="flex justify-center">
+      <button onclick="scrollToExperience()" class="inline-block bg-blue-500 text-white px-6 py-2 rounded-xl shadow-md hover:bg-blue-600 transition duration-200">Ver mais detalhes</button>
+    </div>
   </section>
 
   <!-- Perfil Profissional -->
@@ -55,8 +55,8 @@
     <hr class="border-t-2 border-gray-300 mb-10" />
 
     <!-- Tabs -->
-    <div id="inicio-experiencia" class="flex flex-col sm:flex-row gap-4 mb-10">
-      <button onclick="showTab('experiencia', event)" class="tab-btn w-full sm:w-auto px-4 py-2 rounded-full transition duration-200 tab-active">Experiência Profissional</button>
+    <div id="tabs" class="flex flex-col sm:flex-row gap-4 mb-10">
+      <button onclick="showTab('experiencia', event)" class="tab-btn w-full sm:w-auto px-4 py-2 rounded-full transition duration-200 tab-active" id="btn-experiencia">Experiência Profissional</button>
       <button onclick="showTab('formacao', event)" class="tab-btn w-full sm:w-auto px-4 py-2 rounded-full transition duration-200 tab-inactive">Formação & Habilidades</button>
       <button onclick="showTab('informacoes', event)" class="tab-btn w-full sm:w-auto px-4 py-2 rounded-full transition duration-200 tab-inactive">Informações Adicionais</button>
     </div>
@@ -140,23 +140,17 @@
     <p class="text-sm sm:text-base">© <span id="year"></span> Rafael Pereira Morais. Todos os direitos reservados.</p>
   </footer>
 
-  <!-- Script para tabs -->
+  <!-- Scripts -->
   <script>
     function showTab(tab, event) {
       document.querySelectorAll('.tab-content').forEach(div => div.classList.add('hidden'));
       document.getElementById(tab).classList.remove('hidden');
-
       document.querySelectorAll('.tab-btn').forEach(btn => {
         btn.classList.remove('tab-active');
         btn.classList.add('tab-inactive');
       });
-
       event.target.classList.remove('tab-inactive');
       event.target.classList.add('tab-active');
     }
 
-    // Atualiza o ano automaticamente no rodapé
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
-</body>
-</html>
+    function scrollToExperien
